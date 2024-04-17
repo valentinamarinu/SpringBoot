@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.riwi.primeraweb.entity.Coder;
 import com.riwi.primeraweb.service.CoderService;
-import org.springframework.web.bind.annotation.RequestParam;
-;
-
-
-
 
 @Controller
 /* Método para montar la vista y enviarle la lista */
@@ -40,6 +35,5 @@ public class CoderController {
         
         return "viewForm";
     }
-    
 
 }
