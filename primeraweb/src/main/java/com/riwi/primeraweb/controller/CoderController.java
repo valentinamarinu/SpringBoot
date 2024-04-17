@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.riwi.primeraweb.entity.Coder;
-import com.riwi.primeraweb.service.CoderService;;
+import com.riwi.primeraweb.service.CoderService;
+import org.springframework.web.bind.annotation.RequestParam;
+;
 
 
 
@@ -22,7 +24,7 @@ public class CoderController {
     private CoderService objCoderService;
 
     @GetMapping
-    public String showViewGetAll (Model objModel) {
+    public String showViewGetAll(Model objModel) {
         /* Llamo el servicio y guardo la lista de coders */
         List<Coder> list = this.objCoderService.findAll();
 
@@ -33,5 +35,11 @@ public class CoderController {
         return "viewCoder";
     }
 
+    @GetMapping("/form")
+    public String showViewFormCoder() {
+        
+        return "viewForm";
+    }
     
+
 }
