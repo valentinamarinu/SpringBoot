@@ -10,65 +10,59 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" th:href="@{/styles/style.css}" />
   </head>
   <body>
-    <h1 class="text-center fw-bold my-5">Formulario</h1>
+    <h1 class="text-center my-5">Formulario Coder</h1>
 
-    <div class="container d-flex justify-content-center">
-      <form
-        th:object="${coder}"
-        th:action="${action}"
-        method="post"
-        class="w-50 bg-light rounded-3 p-5"
-      >
+    <div class="container">
+      <form th:object="${coder}" th:action="${action}" method="post">
+        <input type="hidden" th:field="*{id}" th:value="${coder.id}" />
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
             id="name"
-            th:field="*{name}"
             placeholder="Nombre Coder"
+            th:field="*{name}"
+            th:value="${coder.name}"
           />
-          <label for="name">Nombre coder</label>
+          <label for="name">Nombre</label>
         </div>
+
         <div class="form-floating mb-3">
           <input
             type="number"
-            min="0"
-            max="150"
-            th:field="*{age}"
             class="form-control"
-            id="age"
-            placeholder="Edad Coder"
+            id="edad"
+            placeholder="Edad"
+            th:field="*{age}"
+            th:value="${coder.age}"
           />
-          <label for="age">Edad coder</label>
+          <label for="edad">Edad Coder</label>
         </div>
 
         <div class="form-floating mb-3">
           <input
             type="text"
-            minlength="0"
-            th:field="*{clan}"
             class="form-control"
             id="clan"
-            placeholder="Clan Coder"
+            placeholder="clan"
+            th:field="*{clan}"
+            th:value="${coder.clan}"
           />
-          <label for="clan">Clan coder</label>
+          <label for="clan">Clan Coder</label>
         </div>
-
-        <div class="d-flex gap-3">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-          <a href="/" class="btn btn-secondary">Cancelar</a>
+        <!-- LINK th:href="@{/estilos/styles.css}" -->
+        <div class="d-flex gap-4">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a href="/" class="btn btn-success">Cancelar</a>
         </div>
       </form>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

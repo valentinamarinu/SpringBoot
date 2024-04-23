@@ -6,28 +6,35 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-//Entity  Indica que esta clase será una entidad y podrá ser mapeda
+/*
+ * Entity le indica a Springboot que esta clase es una entidad
+ */
 @Entity
-/* Table nos permite dar configuraciones a la tabla */
+/*
+ * Table permite configurar la tabla que creará el ORM (HIBERNATE)
+ */
 @Table(name = "coder")
 public class Coder {
-    /* Id indica que el atriibuto siguiente será la llave primaria */
+    /* @Id indica que el atributo será la llave primaria */
     @Id
-    /* GeneratedValue Permite que el id sera autoincrementable */
+    /*
+     * @GeneratedValue indica que el atributo será auto generado con la estrategia
+     * auto_increment
+     */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int age;
     private String clan;
+    private int age;
 
     public Coder() {
     }
 
-    public Coder(Long id, String name, int age, String clan) {
+    public Coder(Long id, String name, String clan, int age) {
         this.id = id;
         this.name = name;
-        this.age = age;
         this.clan = clan;
+        this.age = age;
     }
 
     public Long getId() {
@@ -46,14 +53,6 @@ public class Coder {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getClan() {
         return clan;
     }
@@ -62,9 +61,17 @@ public class Coder {
         this.clan = clan;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
-        return "Coder [id=" + id + ", name=" + name + ", age=" + age + ", clan=" + clan + "]";
+        return "Coder [id=" + id + ", name=" + name + ", clan=" + clan + ", age=" + age + "]";
     }
 
 }
