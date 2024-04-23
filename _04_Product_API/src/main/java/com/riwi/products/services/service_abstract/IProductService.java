@@ -15,10 +15,13 @@ public interface IProductService {
 
     public Product findById(Long id);
 
-    public boolean delete(Long id);
+    /* ELIMINAR no me retorne nada */
+    public void delete(Long id);
 
-    public Product update(Long id);
+    /* ACTUALIZAR me retorna un objeto de tipo PRODUCT */
+    public Product update(Long id, Product product);
 
+    /* BUSCAR me retorna una listade productos */
     public List<Product> search(String name);
 
 }
